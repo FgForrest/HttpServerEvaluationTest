@@ -35,6 +35,10 @@ public class GraphQLDataFetchers {
                     "lastName", "Rice")
     );
 
+    public DataFetcher getEchoDataFetcher() {
+        return env -> Map.of("message", env.getArgument("message"));
+    }
+
     public DataFetcher getBookByIdDataFetcher() {
         return dataFetchingEnvironment -> {
             String bookId = dataFetchingEnvironment.getArgument("id");

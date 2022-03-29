@@ -25,7 +25,7 @@ public class GraphQLProvider {
         this.graphQLDataFetchers = new GraphQLDataFetchers();
 
         final String sdl;
-        try (InputStream is = GraphQLProvider.class.getClassLoader().getResourceAsStream("schema.graphqls");
+        try (InputStream is = GraphQLProvider.class.getClassLoader().getResourceAsStream("schema.graphql");
              InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
              BufferedReader br = new BufferedReader(isr)) {
             sdl = br.lines().collect(Collectors.joining("\n"));
@@ -51,7 +51,8 @@ public class GraphQLProvider {
     private RuntimeWiring buildWiring() {
         return RuntimeWiring.newRuntimeWiring()
                 .type(newTypeWiring("Query")
-                        .dataFetcher("bookById", graphQLDataFetchers.getBookByIdDataFetcher()))
+                        .dataFetcher("bookById", graphQLDataFetchers.getBookByIdDataFetcher())
+                        .dataFetcher("echo", graphQLDataFetchers.getEchoDataFetcher()))
                 .type(newTypeWiring("Book")
                         .dataFetcher("author", graphQLDataFetchers.getAuthorDataFetcher()))
                 .build();
