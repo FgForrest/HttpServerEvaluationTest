@@ -11,15 +11,13 @@ import io.netty.handler.codec.http.*;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLManager;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLRequest;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLResponse;
-import org.microhttp.Header;
-import org.microhttp.Response;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.*;
-import static io.netty.handler.codec.http.HttpHeaderValues.*;
+import static io.netty.handler.codec.http.HttpHeaderValues.APPLICATION_JSON;
+import static io.netty.handler.codec.http.HttpHeaderValues.CLOSE;
 import static io.netty.handler.codec.http.HttpResponseStatus.*;
 
 public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
