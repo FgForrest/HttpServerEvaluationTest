@@ -9,15 +9,21 @@ import java.io.IOException;
 
 public class MicroHTTPServerRunner {
 
+    private EventLoop eventLoop;
+
     public void run() throws IOException {
         Options options = new Options()
                 .withHost("localhost")
-                .withPort(4000);
+                .withPort(8081);
 
-//        EventLoop eventLoop = new EventLoop(options, new NoOpLogger(), new HelloWorldHandler());
-        EventLoop eventLoop = new EventLoop(options, new NoOpLogger(), new GraphQLHandler());
+//        eventLoop = new EventLoop(options, new NoOpLogger(), new HelloWorldHandler());
+        eventLoop = new EventLoop(options, new NoOpLogger(), new GraphQLHandler());
         System.out.println("Starting microhttp server...");
         eventLoop.start();
+    }
+
+    public void stop() {
+        eventLoop.stop();
     }
 
     public static void main(String[] args) throws IOException {

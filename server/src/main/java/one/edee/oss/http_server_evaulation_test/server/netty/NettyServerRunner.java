@@ -9,10 +9,13 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class NettyServerRunner {
 
+    EventLoopGroup bossGroup;
+    EventLoopGroup workerGroup;
+
     public void run() throws InterruptedException {
         // Configure the server.
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        bossGroup = new NioEventLoopGroup();
+        workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.option(ChannelOption.SO_BACKLOG, 1024);
@@ -21,7 +24,7 @@ public class NettyServerRunner {
 //                    .childHandler(new HelloWorldInitializer());
                     .childHandler(new GraphQLInitializer());
 
-            ChannelFuture channelFuture = b.bind(4000).sync();
+            ChannelFuture channelFuture = b.bind(8082).sync();
 
             System.err.println("Started Netty server");
 
@@ -30,6 +33,11 @@ public class NettyServerRunner {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }
+    }
+
+    public void stop() {
+        bossGroup.shutdownGracefully();
+        workerGroup.shutdownGracefully();
     }
 
     public static void main(String[] args) throws InterruptedException {
