@@ -28,4 +28,9 @@ public class ServersThroughputBenchmark extends ServersBenchmark {
     public void graphQLApiEchoQuery_JavalinServer(JavalinServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         super.graphQLApiEchoQuery_JavalinServer(state, blackhole);
     }
+
+    @Override
+    public void graphQLApiEchoQuery_VertXServer(VertXServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_VertXServer(state, blackhole);
+    }
 }

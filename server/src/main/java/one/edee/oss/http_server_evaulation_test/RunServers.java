@@ -4,6 +4,7 @@ import one.edee.oss.http_server_evaulation_test.server.javalin.JavalinServerRunn
 import one.edee.oss.http_server_evaulation_test.server.microhttp.MicroHTTPServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.nanohttpd.NanoHTTPDServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.netty.NettyServerRunner;
+import one.edee.oss.http_server_evaulation_test.server.vertx.VertXServerRunner;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -54,6 +55,12 @@ public class RunServers {
         javalinServerThread.setDaemon(true);
         javalinServerThread.start();
 
+        // start vertx
+        final VertXServerRunner vertXServerRunner = new VertXServerRunner();
+        final Thread vertXServerThread = new Thread(vertXServerRunner::run);
+        vertXServerThread.setDaemon(true);
+        vertXServerThread.start();
+
         // shutdown hook
         AtomicBoolean running = new AtomicBoolean(true);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -63,6 +70,7 @@ public class RunServers {
             nettyServerRunner.stop();
             nanoHTTPDServerRunner.stop();
             javalinServerRunner.stop();
+            vertXServerRunner.stop();
 
             try {
                 // let servers shutdown
