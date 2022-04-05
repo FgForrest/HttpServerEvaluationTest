@@ -51,15 +51,14 @@ public class RunServers {
 
         // start javalin
         final JavalinServerRunner javalinServerRunner = new JavalinServerRunner();
-        final Thread javalinServerThread = new Thread(javalinServerRunner::run);
-        javalinServerThread.setDaemon(true);
-        javalinServerThread.start();
+        javalinServerRunner.run();
 
         // start vertx
         final VertXServerRunner vertXServerRunner = new VertXServerRunner();
-        final Thread vertXServerThread = new Thread(vertXServerRunner::run);
-        vertXServerThread.setDaemon(true);
-        vertXServerThread.start();
+        vertXServerRunner.run();
+
+        // start spring boot mvc
+        System.out.println("Run Spring boot MVC separately!!!");
 
         // shutdown hook
         AtomicBoolean running = new AtomicBoolean(true);

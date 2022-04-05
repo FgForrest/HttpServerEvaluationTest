@@ -1,6 +1,8 @@
 package one.edee.oss.http_server_evaulation_test.jmh;
 
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.infra.Blackhole;
 
 import java.io.IOException;
@@ -42,6 +44,13 @@ public abstract class ServersBenchmark {
     @Measurement(time = 1, timeUnit = TimeUnit.MINUTES)
     @Threads(Threads.MAX)
     public void graphQLApiEchoQuery_VertXServer(VertXServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        blackhole.consume(callGraphQLApi(state));
+    }
+
+    @Benchmark
+    @Measurement(time = 1, timeUnit = TimeUnit.MINUTES)
+    @Threads(Threads.MAX)
+    public void graphQLApiEchoQuery_SpringBootMVCServer(SpringBootMVCServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         blackhole.consume(callGraphQLApi(state));
     }
 
