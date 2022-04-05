@@ -1,7 +1,7 @@
 package one.edee.oss.http_server_evaulation_test;
 
 import one.edee.oss.http_server_evaulation_test.server.microhttp.MicroHTTPServerRunner;
-import one.edee.oss.http_server_evaulation_test.server.nanohttpd.NanoHTTDServerRunner;
+import one.edee.oss.http_server_evaulation_test.server.nanohttpd.NanoHTTPDServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.netty.NettyServerRunner;
 
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class RunServers {
         nettyServerThread.start();
 
         // start nanohttpd
-        final NanoHTTDServerRunner nanoHTTPDServerRunner = new NanoHTTDServerRunner();
+        final NanoHTTPDServerRunner nanoHTTPDServerRunner = new NanoHTTPDServerRunner();
         final Thread nanoHTTPDServerThread = new Thread(() -> {
             nanoHTTPDServerRunner.run();
             System.out.println("Stopped nanohttpd server.");

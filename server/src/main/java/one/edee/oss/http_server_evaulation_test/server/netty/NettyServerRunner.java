@@ -9,6 +9,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class NettyServerRunner {
 
+    public static final int PORT = 8082;
+
     EventLoopGroup bossGroup;
     EventLoopGroup workerGroup;
 
@@ -24,7 +26,7 @@ public class NettyServerRunner {
 //                    .childHandler(new HelloWorldInitializer());
                     .childHandler(new GraphQLInitializer());
 
-            ChannelFuture channelFuture = b.bind(8082).sync();
+            ChannelFuture channelFuture = b.bind(PORT).sync();
 
             System.err.println("Started Netty server");
 

@@ -44,5 +44,5 @@ public abstract class ServerState {
         client = null;
     }
 
-    protected abstract String getServerPort();
+    protected abstract int getServerPort();
 }

@@ -3,12 +3,14 @@ package one.edee.oss.http_server_evaulation_test.server.nanohttpd;
 import fi.iki.elonen.router.RouterNanoHTTPD;
 import fi.iki.elonen.util.ServerRunner;
 
-public class NanoHTTDServerRunner extends RouterNanoHTTPD {
+public class NanoHTTPDServerRunner extends RouterNanoHTTPD {
+
+    public static final int PORT = 8083;
 
     // thread pool example https://github.com/NanoHttpd/nanohttpd/wiki/Example:-Using-a-ThreadPool
 
-    public NanoHTTDServerRunner() {
-        super(8083);
+    public NanoHTTPDServerRunner() {
+        super(PORT);
         addMappings();
         System.out.println("Started NanoHTTPD server.");
     }
@@ -25,6 +27,6 @@ public class NanoHTTDServerRunner extends RouterNanoHTTPD {
     }
 
     public static void main(String[] args) {
-        new NanoHTTDServerRunner().run();
+        new NanoHTTPDServerRunner().run();
     }
 }

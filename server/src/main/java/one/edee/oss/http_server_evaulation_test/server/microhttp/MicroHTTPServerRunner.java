@@ -9,12 +9,14 @@ import java.io.IOException;
 
 public class MicroHTTPServerRunner {
 
+    public static final int PORT = 8081;
+
     private EventLoop eventLoop;
 
     public void run() throws IOException {
         Options options = new Options()
                 .withHost("localhost")
-                .withPort(8081);
+                .withPort(PORT);
 
 //        eventLoop = new EventLoop(options, new NoOpLogger(), new HelloWorldHandler());
         eventLoop = new EventLoop(options, new NoOpLogger(), new GraphQLHandler());

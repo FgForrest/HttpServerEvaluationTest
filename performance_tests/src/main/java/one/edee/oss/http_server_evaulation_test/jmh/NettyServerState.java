@@ -1,9 +1,11 @@
 package one.edee.oss.http_server_evaulation_test.jmh;
 
+import one.edee.oss.http_server_evaulation_test.server.netty.NettyServerRunner;
+
 public class NettyServerState extends ServerState {
 
     @Override
-    protected String getServerPort() {
-        return "8082";
+    protected int getServerPort() {
+        return NettyServerRunner.PORT;
     }
 }
