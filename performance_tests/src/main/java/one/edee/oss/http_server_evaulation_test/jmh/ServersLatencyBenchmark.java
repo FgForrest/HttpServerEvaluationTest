@@ -16,4 +16,19 @@ public class ServersLatencyBenchmark extends ServersBenchmark {
     public void graphQLApiEchoQuery_MicroHTTPServer(MicroHTTPServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         super.graphQLApiEchoQuery_MicroHTTPServer(state, blackhole);
     }
+
+    @Override
+    public void graphQLApiEchoQuery_NettyServer(NettyServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_NettyServer(state, blackhole);
+    }
+
+    @Override
+    public void graphQLApiEchoQuery_NanoHTTPDServer(NanoHTTPDServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_NanoHTTPDServer(state, blackhole);
+    }
+
+    @Override
+    public void graphQLApiEchoQuery_JavalinServer(JavalinServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_JavalinServer(state, blackhole);
+    }
 }

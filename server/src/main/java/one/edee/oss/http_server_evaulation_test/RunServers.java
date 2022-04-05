@@ -1,5 +1,6 @@
 package one.edee.oss.http_server_evaulation_test;
 
+import one.edee.oss.http_server_evaulation_test.server.javalin.JavalinServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.microhttp.MicroHTTPServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.nanohttpd.NanoHTTPDServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.netty.NettyServerRunner;
@@ -47,6 +48,12 @@ public class RunServers {
         nanoHTTPDServerThread.setDaemon(true);
         nanoHTTPDServerThread.start();
 
+        // start javalin
+        final JavalinServerRunner javalinServerRunner = new JavalinServerRunner();
+        final Thread javalinServerThread = new Thread(javalinServerRunner::run);
+        javalinServerThread.setDaemon(true);
+        javalinServerThread.start();
+
         // shutdown hook
         AtomicBoolean running = new AtomicBoolean(true);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -55,6 +62,7 @@ public class RunServers {
             microHTTPServerRunner.stop();
             nettyServerRunner.stop();
             nanoHTTPDServerRunner.stop();
+            javalinServerRunner.stop();
 
             try {
                 // let servers shutdown
