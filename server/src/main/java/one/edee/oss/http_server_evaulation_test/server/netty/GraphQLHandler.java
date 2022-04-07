@@ -2,7 +2,7 @@ package one.edee.oss.http_server_evaulation_test.server.netty;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.netty.buffer.Unpooled;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -22,13 +22,8 @@ import static io.netty.handler.codec.http.HttpResponseStatus.*;
 
 public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
 
-    private final GraphQLManager graphQLManager;
-    private final ObjectMapper objectMapper;
-
-    public GraphQLHandler() {
-        this.graphQLManager = new GraphQLManager();
-        this.objectMapper = new ObjectMapper();
-    }
+    private static final GraphQLManager graphQLManager = new GraphQLManager();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
@@ -45,11 +40,11 @@ public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
         HttpResponse response;
 
         if (!request.uri().equals("/graphql")) {
-            response = createResponse(request, NOT_FOUND, "".getBytes(StandardCharsets.UTF_8));
+            response = createResponse(ctx, request, NOT_FOUND, "".getBytes(StandardCharsets.UTF_8));
         } else if (!request.method().equals(HttpMethod.POST)) {
-            response = createResponse(request, BAD_REQUEST, "".getBytes(StandardCharsets.UTF_8));
+            response = createResponse(ctx, request, BAD_REQUEST, "".getBytes(StandardCharsets.UTF_8));
         } else if (!(request instanceof HttpContent)) {
-            response = createResponse(request, INTERNAL_SERVER_ERROR, "".getBytes(StandardCharsets.UTF_8));
+            response = createResponse(ctx, request, INTERNAL_SERVER_ERROR, "".getBytes(StandardCharsets.UTF_8));
         } else {
             try {
                 // translate request
@@ -62,11 +57,11 @@ public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
 
                 // send response
                 final byte[] json = objectMapper.writeValueAsBytes(graphQLResponse);
-                response = createResponse(request, OK, json);
+                response = createResponse(ctx, request, OK, json);
             } catch (JsonProcessingException e) {
-                response = createResponse(request, INTERNAL_SERVER_ERROR, "".getBytes(StandardCharsets.UTF_8));
+                response = createResponse(ctx, request, INTERNAL_SERVER_ERROR, "".getBytes(StandardCharsets.UTF_8));
             } catch (IOException e) {
-                response = createResponse(request, BAD_REQUEST, "".getBytes(StandardCharsets.UTF_8));
+                response = createResponse(ctx, request, BAD_REQUEST, "".getBytes(StandardCharsets.UTF_8));
             }
         }
 
@@ -80,11 +75,13 @@ public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
         ctx.close();
     }
 
-    private HttpResponse createResponse(HttpRequest request, HttpResponseStatus status, byte[] body) {
+    private HttpResponse createResponse(ChannelHandlerContext ctx, HttpRequest request, HttpResponseStatus status, byte[] body) {
+        final ByteBuf bodyBuffer = ctx.alloc().buffer(body.length);
+        bodyBuffer.writeBytes(body);
         FullHttpResponse response = new DefaultFullHttpResponse(
                 request.protocolVersion(),
                 status,
-                Unpooled.wrappedBuffer(body)
+                bodyBuffer
         );
         response.headers()
                 .set(CONTENT_TYPE, APPLICATION_JSON)

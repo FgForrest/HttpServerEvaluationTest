@@ -24,13 +24,8 @@ public class GraphQLHandler extends RouterNanoHTTPD.DefaultHandler {
     private static final int REQUEST_BUFFER_LEN = 512;
     private static final int MEMORY_STORE_LIMIT = 1024;
 
-    private GraphQLManager graphQLManager;
-    private ObjectMapper objectMapper;
-
-    public GraphQLHandler() {
-        this.graphQLManager = new GraphQLManager();
-        this.objectMapper = new ObjectMapper();
-    }
+    private static final GraphQLManager graphQLManager = new GraphQLManager();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public String getText() {

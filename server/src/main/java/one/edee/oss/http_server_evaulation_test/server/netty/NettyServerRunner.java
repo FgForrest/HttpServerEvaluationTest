@@ -1,6 +1,7 @@
 package one.edee.oss.http_server_evaulation_test.server.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -21,6 +22,7 @@ public class NettyServerRunner {
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.option(ChannelOption.SO_BACKLOG, 1024);
+            b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
 //                    .childHandler(new HelloWorldInitializer());
