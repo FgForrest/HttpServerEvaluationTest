@@ -25,8 +25,7 @@ public class NettyServerRunner {
             b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-//                    .childHandler(new HelloWorldInitializer());
-                    .childHandler(new GraphQLInitializer());
+                    .childHandler(new DispatcherInitializer());
 
             ChannelFuture channelFuture = b.bind(PORT).sync();
 

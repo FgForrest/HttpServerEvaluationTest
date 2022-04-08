@@ -18,8 +18,7 @@ public class MicroHTTPServerRunner {
                 .withHost("localhost")
                 .withPort(PORT);
 
-//        eventLoop = new EventLoop(options, new NoOpLogger(), new HelloWorldHandler());
-        eventLoop = new EventLoop(options, new NoOpLogger(), new GraphQLHandler());
+        eventLoop = new EventLoop(options, new NoOpLogger(), new DispatcherHandler());
         System.out.println("Starting microhttp server...");
         eventLoop.start();
     }

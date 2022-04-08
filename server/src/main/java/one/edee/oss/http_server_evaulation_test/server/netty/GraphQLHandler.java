@@ -6,7 +6,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLManager;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLRequest;
@@ -20,18 +19,13 @@ import static io.netty.handler.codec.http.HttpHeaderValues.APPLICATION_JSON;
 import static io.netty.handler.codec.http.HttpHeaderValues.CLOSE;
 import static io.netty.handler.codec.http.HttpResponseStatus.*;
 
-public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
+public class GraphQLHandler implements PathHandler {
 
     private static final GraphQLManager graphQLManager = new GraphQLManager();
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) {
-        ctx.flush();
-    }
-
-    @Override
-    public void channelRead0(ChannelHandlerContext ctx, HttpObject msg) {
+    public void channelRead(ChannelHandlerContext ctx, HttpObject msg) {
         if (!(msg instanceof FullHttpRequest)) {
             return;
         }
@@ -67,12 +61,6 @@ public class GraphQLHandler extends SimpleChannelInboundHandler<HttpObject> {
 
         ChannelFuture f = ctx.write(response);
         f.addListener(ChannelFutureListener.CLOSE);
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        cause.printStackTrace();
-        ctx.close();
     }
 
     private HttpResponse createResponse(ChannelHandlerContext ctx, HttpRequest request, HttpResponseStatus status, byte[] body) {

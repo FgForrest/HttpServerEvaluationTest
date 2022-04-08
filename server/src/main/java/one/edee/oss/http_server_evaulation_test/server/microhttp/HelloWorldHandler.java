@@ -7,10 +7,10 @@ import org.microhttp.Response;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class HelloWorldHandler extends AsyncHandler {
+public class HelloWorldHandler implements PathHandler {
 
     @Override
-    protected Response doHandle(Request request) {
+    public Response handle(Request request) {
         String body = "Hello world:\n" +
                 "method: " + request.method() + "\n" +
                 "uri: " + request.uri() + "\n" +

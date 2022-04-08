@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class GraphQLHandler extends AsyncHandler {
+public class GraphQLHandler implements PathHandler {
 
     private final GraphQLManager graphQLManager;
     private final ObjectMapper objectMapper;
@@ -24,10 +24,7 @@ public class GraphQLHandler extends AsyncHandler {
     }
 
     @Override
-    protected Response doHandle(Request request) {
-        if (!request.uri().equals("/graphql")) {
-            return createResponse(404, "Not found", "".getBytes(StandardCharsets.UTF_8));
-        }
+    public Response handle(Request request) {
         if (!request.method().equals("POST")) {
             return createResponse(400, "Only POST method is supported", "".getBytes(StandardCharsets.UTF_8));
         }
