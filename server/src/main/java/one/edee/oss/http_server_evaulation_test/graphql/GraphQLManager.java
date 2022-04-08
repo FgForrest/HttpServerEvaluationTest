@@ -5,6 +5,7 @@ import graphql.ExecutionResult;
 import graphql.GraphQL;
 import graphql.GraphQLError;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 public class GraphQLManager {
@@ -33,5 +34,26 @@ public class GraphQLManager {
                 .stream()
                 .map(GraphQLError::getMessage)
                 .collect(Collectors.toList()));
+    }
+
+    public <T> CompletableFuture<GraphQLResponse<T>> executeAsync(GraphQLRequest request) {
+        final ExecutionInput.Builder executionInputBuilder = new ExecutionInput.Builder()
+                .query(request.query());
+        if (request.operationName() != null) {
+            executionInputBuilder.operationName(request.operationName());
+        }
+        if (request.variables() != null) {
+            executionInputBuilder.variables(request.variables());
+        }
+
+        // execute query
+        final CompletableFuture<ExecutionResult> futureResult = graphQL.executeAsync(executionInputBuilder.build());
+        return futureResult.thenApply((result) -> {
+            // translate response
+            return new GraphQLResponse<>(result.getData(), result.getErrors()
+                    .stream()
+                    .map(GraphQLError::getMessage)
+                    .collect(Collectors.toList()));
+        });
     }
 }

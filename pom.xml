@@ -17,6 +17,7 @@
         <module>server</module>
         <module>performance_tests</module>
         <module>spring_boot_mvc_server</module>
+        <module>spring_boot_web_flux_server</module>
     </modules>
 
     <build>

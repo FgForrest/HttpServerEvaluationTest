@@ -38,4 +38,9 @@ public class ServersThroughputBenchmark extends ServersBenchmark {
     public void graphQLApiEchoQuery_SpringBootMVCServer(SpringBootMVCServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         super.graphQLApiEchoQuery_SpringBootMVCServer(state, blackhole);
     }
+
+    @Override
+    public void graphQLApiEchoQuery_SpringBootWebFluxServer(SpringBootWebFluxServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_SpringBootWebFluxServer(state, blackhole);
+    }
 }

@@ -54,6 +54,13 @@ public abstract class ServersBenchmark {
         blackhole.consume(callGraphQLApi(state));
     }
 
+    @Benchmark
+    @Measurement(time = 1, timeUnit = TimeUnit.MINUTES)
+    @Threads(Threads.MAX)
+    public void graphQLApiEchoQuery_SpringBootWebFluxServer(SpringBootWebFluxServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        blackhole.consume(callGraphQLApi(state));
+    }
+
     private HttpResponse<String> callGraphQLApi(ServerState state) throws IOException, InterruptedException {
         return state.client.send(state.request, BodyHandlers.ofString());
     }
