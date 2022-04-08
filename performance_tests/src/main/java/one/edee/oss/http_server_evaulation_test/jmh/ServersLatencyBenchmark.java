@@ -46,4 +46,9 @@ public class ServersLatencyBenchmark extends ServersBenchmark {
     public void graphQLApiEchoQuery_SpringBootWebFluxServer(SpringBootWebFluxServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         super.graphQLApiEchoQuery_SpringBootWebFluxServer(state, blackhole);
     }
+
+    @Override
+    public void graphQLApiEchoQuery_UndertowServer(UndertowServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_UndertowServer(state, blackhole);
+    }
 }

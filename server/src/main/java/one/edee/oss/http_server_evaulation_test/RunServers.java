@@ -4,6 +4,7 @@ import one.edee.oss.http_server_evaulation_test.server.javalin.JavalinServerRunn
 import one.edee.oss.http_server_evaulation_test.server.microhttp.MicroHTTPServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.nanohttpd.NanoHTTPDServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.netty.NettyServerRunner;
+import one.edee.oss.http_server_evaulation_test.server.undertow.UndertowServerRunner;
 import one.edee.oss.http_server_evaulation_test.server.vertx.VertXServerRunner;
 
 import java.io.IOException;
@@ -22,7 +23,6 @@ public class RunServers {
             } catch (IOException e) {
                 // end
             }
-            System.out.println("Stopped microhttp server.");
         });
         microHTTPServerThread.setDaemon(true);
         microHTTPServerThread.start();
@@ -35,17 +35,13 @@ public class RunServers {
             } catch (InterruptedException e) {
                 // end
             }
-            System.out.println("Stopped netty server.");
         });
         nettyServerThread.setDaemon(true);
         nettyServerThread.start();
 
         // start nanohttpd
         final NanoHTTPDServerRunner nanoHTTPDServerRunner = new NanoHTTPDServerRunner();
-        final Thread nanoHTTPDServerThread = new Thread(() -> {
-            nanoHTTPDServerRunner.run();
-            System.out.println("Stopped nanohttpd server.");
-        });
+        final Thread nanoHTTPDServerThread = new Thread(nanoHTTPDServerRunner::run);
         nanoHTTPDServerThread.setDaemon(true);
         nanoHTTPDServerThread.start();
 
@@ -60,6 +56,13 @@ public class RunServers {
         // start spring boot mvc
         System.out.println("Run Spring boot MVC separately!!!");
 
+        // start spring boot webflux
+        System.out.println("Run Spring Boot WebFlux separately!!!");
+
+        // start undertow
+        final UndertowServerRunner undertowServerRunner = new UndertowServerRunner();
+        undertowServerRunner.run();
+
         // shutdown hook
         AtomicBoolean running = new AtomicBoolean(true);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -70,6 +73,7 @@ public class RunServers {
             nanoHTTPDServerRunner.stop();
             javalinServerRunner.stop();
             vertXServerRunner.stop();
+            undertowServerRunner.stop();
 
             try {
                 // let servers shutdown

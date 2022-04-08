@@ -25,6 +25,7 @@ public class MicroHTTPServerRunner {
 
     public void stop() {
         eventLoop.stop();
+        System.out.println("Microhttp server stopped.");
     }
 
     public static void main(String[] args) throws IOException {

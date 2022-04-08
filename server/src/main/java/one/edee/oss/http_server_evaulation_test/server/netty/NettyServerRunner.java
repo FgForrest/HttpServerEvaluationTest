@@ -41,6 +41,7 @@ public class NettyServerRunner {
     public void stop() {
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();
+        System.out.println("Netty server stopped.");
     }
 
     public static void main(String[] args) throws InterruptedException {

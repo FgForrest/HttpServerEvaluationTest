@@ -26,6 +26,12 @@ public class NanoHTTPDServerRunner extends RouterNanoHTTPD {
         ServerRunner.executeInstance(this);
     }
 
+    @Override
+    public void stop() {
+        super.stop();
+        System.out.println("Nanohttpd server stopped.");
+    }
+
     public static void main(String[] args) {
         new NanoHTTPDServerRunner().run();
     }

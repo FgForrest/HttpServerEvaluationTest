@@ -17,6 +17,7 @@ public class JavalinServerRunner {
 
     public void stop() {
         app.stop();
+        System.out.println("Javalin server stopped.");
     }
 
     public static void main(String[] args) {
