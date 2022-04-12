@@ -48,4 +48,9 @@ public class ServersThroughputBenchmark extends ServersBenchmark {
     public void graphQLApiEchoQuery_UndertowServer(UndertowServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         super.graphQLApiEchoQuery_UndertowServer(state, blackhole);
     }
+
+    @Override
+    public void graphQLApiEchoQuery_QuarkusServer(QuarkusServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_QuarkusServer(state, blackhole);
+    }
 }

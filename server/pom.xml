@@ -13,6 +13,12 @@
     <artifactId>http_server_evaulation_test_server</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>one.edee.oss</groupId>
+            <artifactId>http_server_evaulation_test_graphql</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- servers -->
         <dependency>
             <groupId>org.microhttp</groupId>
@@ -71,19 +77,6 @@
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
             <version>2.2.16.Final</version>
-        </dependency>
-
-        <!-- graphql -->
-        <dependency>
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphql-java</artifactId>
-            <version>18.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.13.2.2</version>
         </dependency>
     </dependencies>
 

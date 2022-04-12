@@ -19,6 +19,11 @@
             <artifactId>http_server_evaulation_test_server</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>one.edee.oss</groupId>
+            <artifactId>http_server_evaulation_test_quarkus_server</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!-- jmh -->
         <dependency>
