@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: micronaut_server
+  server:
+    port: 8090
+netty:
+  default:
+    allocator:
+      max-order: 3
