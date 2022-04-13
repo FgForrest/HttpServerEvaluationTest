@@ -4,6 +4,18 @@ This repository contains simple proof of concept work that evaluates different H
 their usability as a HTTP GraphQL/REST/gRPC API server, memory footprint and performance characteristics.
 
 Benchmark consists of simple echo GraphQL API and implementations of individual HTTP servers serving the GraphQL API.
+Tested servers are:
+
+- [microhttp](https://github.com/ebarlas/microhttp)
+- [NanoHTTPD](https://github.com/NanoHttpd/nanohttpd)
+- [Netty](https://github.com/netty/netty)
+- [Spring Boot MVC](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web)
+- [Spring Boot WebFlux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#spring-webflux)
+- [Vert.x](https://github.com/eclipse-vertx/vert.x)
+- [Quarkus Native](https://quarkus.io/)
+- [Undertow](https://github.com/undertow-io/undertow)
+- [Micronaut](https://micronaut.io/)
+- [Javalin](https://github.com/tipsy/javalin)
 
 ## Run tests
 
@@ -45,11 +57,11 @@ query Echo {
 and response:
 ```json
 {
-	"data": {
-		"echo": {
-			"message": "hello"
-		}
-	}
+    "data": {
+	    "echo": {
+		    "message": "hello"
+        }
+    }
 }
 ```
 
