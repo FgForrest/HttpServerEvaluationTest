@@ -1,21 +1,21 @@
 type Query {
     echo(message: String!): Echo
-    bookById(id: ID): Book
+#    bookById(id: ID): Book
 }
 
 type Echo {
     message: String
 }
 
-type Book {
-    id: ID
-    name: String
-    pageCount: Int
-    author: Author
-}
-
-type Author {
-    id: ID
-    firstName: String
-    lastName: String
-}
+#type Book {
+#    id: ID
+#    name: String
+#    pageCount: Int
+#    author: Author
+#}
+#
+#type Author {
+#    id: ID
+#    firstName: String
+#    lastName: String
+#}
