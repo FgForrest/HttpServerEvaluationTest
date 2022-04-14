@@ -1,0 +1,1150 @@
+[
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_JavalinServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 17958.413738127063,
+            "scoreError" : 1175.1292470235726,
+            "scoreConfidence" : [
+                16783.28449110349,
+                19133.542985150634
+            ],
+            "scorePercentiles" : {
+                "0.0" : 17696.662029770487,
+                "50.0" : 17763.783215000843,
+                "90.0" : 18356.727732159594,
+                "95.0" : 18356.727732159594,
+                "99.0" : 18356.727732159594,
+                "99.9" : 18356.727732159594,
+                "99.99" : 18356.727732159594,
+                "99.999" : 18356.727732159594,
+                "99.9999" : 18356.727732159594,
+                "100.0" : 18356.727732159594
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    18217.44549231755,
+                    18356.727732159594,
+                    17757.450221386855,
+                    17696.662029770487,
+                    17763.783215000843
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_MicroHTTPServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 18186.878602760582,
+            "scoreError" : 221.3599063292997,
+            "scoreConfidence" : [
+                17965.51869643128,
+                18408.238509089882
+            ],
+            "scorePercentiles" : {
+                "0.0" : 18003.255795053046,
+                "50.0" : 18195.463577344693,
+                "90.0" : 18381.95464050368,
+                "95.0" : 18384.313772630652,
+                "99.0" : 18384.313772630652,
+                "99.9" : 18384.313772630652,
+                "99.99" : 18384.313772630652,
+                "99.999" : 18384.313772630652,
+                "99.9999" : 18384.313772630652,
+                "100.0" : 18384.313772630652
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    18003.255795053046,
+                    18140.01919995427,
+                    18038.683786712656,
+                    18081.65869662293,
+                    18020.686964459313
+                ],
+                [
+                    18250.907954735118,
+                    18292.628303492103,
+                    18295.90910258478,
+                    18384.313772630652,
+                    18360.722451360944
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_MicronautServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 14742.204824396804,
+            "scoreError" : 696.7746973210132,
+            "scoreConfidence" : [
+                14045.430127075791,
+                15438.979521717816
+            ],
+            "scorePercentiles" : {
+                "0.0" : 14464.197993740927,
+                "50.0" : 14718.565971398995,
+                "90.0" : 15051.549315669417,
+                "95.0" : 15051.549315669417,
+                "99.0" : 15051.549315669417,
+                "99.9" : 15051.549315669417,
+                "99.99" : 15051.549315669417,
+                "99.999" : 15051.549315669417,
+                "99.9999" : 15051.549315669417,
+                "100.0" : 15051.549315669417
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    14707.929598700452,
+                    15009.26008094703,
+                    14729.202344097539,
+                    14491.089613225453,
+                    14464.197993740927
+                ],
+                [
+                    15051.549315669417
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_NanoHTTPDServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 8873.609410581072,
+            "scoreError" : 145.2297718896579,
+            "scoreConfidence" : [
+                8728.379638691415,
+                9018.839182470729
+            ],
+            "scorePercentiles" : {
+                "0.0" : 8708.813182708784,
+                "50.0" : 8866.88381627684,
+                "90.0" : 9016.958880870943,
+                "95.0" : 9022.690860507239,
+                "99.0" : 9022.690860507239,
+                "99.9" : 9022.690860507239,
+                "99.99" : 9022.690860507239,
+                "99.999" : 9022.690860507239,
+                "99.9999" : 9022.690860507239,
+                "100.0" : 9022.690860507239
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    8919.33301305435,
+                    8797.883101055417,
+                    8810.178183546173,
+                    8833.970248129035,
+                    8816.007681877363
+                ],
+                [
+                    9022.690860507239,
+                    8962.049386363418,
+                    8899.797384424646,
+                    8965.371064144292,
+                    8708.813182708784
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_NettyServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 11271.676010695755,
+            "scoreError" : 222.27642391832902,
+            "scoreConfidence" : [
+                11049.399586777427,
+                11493.952434614084
+            ],
+            "scorePercentiles" : {
+                "0.0" : 11043.141927680117,
+                "50.0" : 11321.730196956241,
+                "90.0" : 11405.854263068317,
+                "95.0" : 11406.646936675384,
+                "99.0" : 11406.646936675384,
+                "99.9" : 11406.646936675384,
+                "99.99" : 11406.646936675384,
+                "99.999" : 11406.646936675384,
+                "99.9999" : 11406.646936675384,
+                "100.0" : 11406.646936675384
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    11204.04882424096,
+                    11255.444438801009,
+                    11168.609983974533,
+                    11055.278088878644,
+                    11043.141927680117
+                ],
+                [
+                    11388.015955111474,
+                    11398.720200604701,
+                    11398.6939665588,
+                    11406.646936675384,
+                    11398.159784431933
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_QuarkusServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 10099.863264465423,
+            "scoreError" : 73.15767439544359,
+            "scoreConfidence" : [
+                10026.70559006998,
+                10173.020938860865
+            ],
+            "scorePercentiles" : {
+                "0.0" : 10012.080770289045,
+                "50.0" : 10109.619729597032,
+                "90.0" : 10158.210315222914,
+                "95.0" : 10158.990822543674,
+                "99.0" : 10158.990822543674,
+                "99.9" : 10158.990822543674,
+                "99.99" : 10158.990822543674,
+                "99.999" : 10158.990822543674,
+                "99.9999" : 10158.990822543674,
+                "100.0" : 10158.990822543674
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    10122.138693022633,
+                    10158.990822543674,
+                    10122.745569171177,
+                    10137.669109535158,
+                    10151.185749336073
+                ],
+                [
+                    10092.68708468759,
+                    10097.100766171432,
+                    10012.080770289045,
+                    10060.709998527875,
+                    10043.324081369561
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_SpringBootMVCServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 11691.072068172067,
+            "scoreError" : 253.5403890825512,
+            "scoreConfidence" : [
+                11437.531679089516,
+                11944.612457254618
+            ],
+            "scorePercentiles" : {
+                "0.0" : 11359.687901573201,
+                "50.0" : 11749.337263203723,
+                "90.0" : 11818.33615054895,
+                "95.0" : 11818.59623369372,
+                "99.0" : 11818.59623369372,
+                "99.9" : 11818.59623369372,
+                "99.99" : 11818.59623369372,
+                "99.999" : 11818.59623369372,
+                "99.9999" : 11818.59623369372,
+                "100.0" : 11818.59623369372
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    11746.201823952491,
+                    11752.472702454954,
+                    11809.640029346096,
+                    11815.995402246028,
+                    11818.59623369372
+                ],
+                [
+                    11722.635358102252,
+                    11775.028314671803,
+                    11706.24767931308,
+                    11359.687901573201,
+                    11404.215236367045
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_SpringBootWebFluxServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 12986.450953871852,
+            "scoreError" : 191.17209115611217,
+            "scoreConfidence" : [
+                12795.27886271574,
+                13177.623045027964
+            ],
+            "scorePercentiles" : {
+                "0.0" : 12889.209703896906,
+                "50.0" : 12928.895148391057,
+                "90.0" : 13222.027626681123,
+                "95.0" : 13223.647784380426,
+                "99.0" : 13223.647784380426,
+                "99.9" : 13223.647784380426,
+                "99.99" : 13223.647784380426,
+                "99.999" : 13223.647784380426,
+                "99.9999" : 13223.647784380426,
+                "100.0" : 13223.647784380426
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    12913.111466322453,
+                    13023.765149038918,
+                    12889.209703896906,
+                    12893.030009482512,
+                    12914.20318433089
+                ],
+                [
+                    13223.647784380426,
+                    13207.4462073874,
+                    12923.721721356,
+                    12942.3057370969,
+                    12934.068575426114
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_UndertowServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 17873.625544461003,
+            "scoreError" : 453.58631216789354,
+            "scoreConfidence" : [
+                17420.03923229311,
+                18327.211856628895
+            ],
+            "scorePercentiles" : {
+                "0.0" : 17573.116315854913,
+                "50.0" : 17721.92395543347,
+                "90.0" : 18280.3719251194,
+                "95.0" : 18288.661953868985,
+                "99.0" : 18288.661953868985,
+                "99.9" : 18288.661953868985,
+                "99.99" : 18288.661953868985,
+                "99.999" : 18288.661953868985,
+                "99.9999" : 18288.661953868985,
+                "100.0" : 18288.661953868985
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    18288.661953868985,
+                    18193.44401262783,
+                    17641.641905763994,
+                    17720.76365651739,
+                    17723.08425434955
+                ],
+                [
+                    18205.761666373168,
+                    18176.00795371892,
+                    17633.008929082807,
+                    17573.116315854913,
+                    17580.764796452437
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersThroughputBenchmark.graphQLApiEchoQuery_VertXServer",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 12222.835247381017,
+            "scoreError" : 131.58961409212546,
+            "scoreConfidence" : [
+                12091.245633288892,
+                12354.424861473142
+            ],
+            "scorePercentiles" : {
+                "0.0" : 12120.432709397195,
+                "50.0" : 12202.682755324917,
+                "90.0" : 12396.141319998547,
+                "95.0" : 12405.902180702818,
+                "99.0" : 12405.902180702818,
+                "99.9" : 12405.902180702818,
+                "99.99" : 12405.902180702818,
+                "99.999" : 12405.902180702818,
+                "99.9999" : 12405.902180702818,
+                "100.0" : 12405.902180702818
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    12196.133343145379,
+                    12217.223580084237,
+                    12286.505803615595,
+                    12405.902180702818,
+                    12308.293573660107
+                ],
+                [
+                    12120.432709397195,
+                    12142.147531493458,
+                    12165.75156335267,
+                    12209.232167504453,
+                    12176.73002085428
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_JavalinServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 452.36918839199427,
+            "scoreError" : 10.899465671269198,
+            "scoreConfidence" : [
+                441.4697227207251,
+                463.26865406326345
+            ],
+            "scorePercentiles" : {
+                "0.0" : 437.4366589221013,
+                "50.0" : 455.2898345076767,
+                "90.0" : 456.76914640081463,
+                "95.0" : 456.798005530148,
+                "99.0" : 456.798005530148,
+                "99.9" : 456.798005530148,
+                "99.99" : 456.798005530148,
+                "99.999" : 456.798005530148,
+                "99.9999" : 456.798005530148,
+                "100.0" : 456.798005530148
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    440.19566003928236,
+                    456.5094142368147,
+                    456.798005530148,
+                    456.28477836883775,
+                    455.16539216840545
+                ],
+                [
+                    437.4366589221013,
+                    456.3133816305714,
+                    455.07418894213595,
+                    455.414276846948,
+                    454.50012723469763
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_MicroHTTPServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 449.08385941836906,
+            "scoreError" : 1.2255102963610953,
+            "scoreConfidence" : [
+                447.85834912200795,
+                450.30936971473017
+            ],
+            "scorePercentiles" : {
+                "0.0" : 448.0534377324346,
+                "50.0" : 448.96262343205217,
+                "90.0" : 450.4774795511581,
+                "95.0" : 450.52545755615984,
+                "99.0" : 450.52545755615984,
+                "99.9" : 450.52545755615984,
+                "99.99" : 450.52545755615984,
+                "99.999" : 450.52545755615984,
+                "99.9999" : 450.52545755615984,
+                "100.0" : 450.52545755615984
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    448.56573437551305,
+                    448.96148691058045,
+                    450.52545755615984,
+                    448.96375995352395,
+                    449.497111347959
+                ],
+                [
+                    450.04567750614297,
+                    448.0534377324346,
+                    449.4862068430669,
+                    448.68487733621345,
+                    448.0548446220961
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_MicronautServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 542.8681000561896,
+            "scoreError" : 14.075101420035693,
+            "scoreConfidence" : [
+                528.7929986361539,
+                556.9432014762253
+            ],
+            "scorePercentiles" : {
+                "0.0" : 533.8153298921579,
+                "50.0" : 538.758003130657,
+                "90.0" : 555.2024392851421,
+                "95.0" : 555.451724457772,
+                "99.0" : 555.451724457772,
+                "99.9" : 555.451724457772,
+                "99.99" : 555.451724457772,
+                "99.999" : 555.451724457772,
+                "99.9999" : 555.451724457772,
+                "100.0" : 555.451724457772
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    536.2286890825396,
+                    534.2740634516949,
+                    534.384187172026,
+                    555.451724457772,
+                    552.7517585835838
+                ],
+                [
+                    535.214089572703,
+                    533.8153298921579,
+                    541.2873171787745,
+                    552.3149684391718,
+                    552.9588727314723
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_NanoHTTPDServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 912.8381744470046,
+            "scoreError" : 12.34918617278065,
+            "scoreConfidence" : [
+                900.488988274224,
+                925.1873606197852
+            ],
+            "scorePercentiles" : {
+                "0.0" : 898.8029172278226,
+                "50.0" : 914.7463841637955,
+                "90.0" : 925.6047855178937,
+                "95.0" : 926.2155342574764,
+                "99.0" : 926.2155342574764,
+                "99.9" : 926.2155342574764,
+                "99.99" : 926.2155342574764,
+                "99.999" : 926.2155342574764,
+                "99.9999" : 926.2155342574764,
+                "100.0" : 926.2155342574764
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    912.9985450651718,
+                    905.9025358625654,
+                    898.8029172278226,
+                    916.4942232624192,
+                    905.323101373703
+                ],
+                [
+                    908.5161752358761,
+                    916.6785850564185,
+                    926.2155342574764,
+                    920.1080468616489,
+                    917.3420802669445
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_NettyServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 714.1038516217322,
+            "scoreError" : 13.415447293432491,
+            "scoreConfidence" : [
+                700.6884043282997,
+                727.5192989151648
+            ],
+            "scorePercentiles" : {
+                "0.0" : 705.6213509115621,
+                "50.0" : 710.437518033157,
+                "90.0" : 724.9787498911631,
+                "95.0" : 725.0885830628752,
+                "99.0" : 725.0885830628752,
+                "99.9" : 725.0885830628752,
+                "99.99" : 725.0885830628752,
+                "99.999" : 725.0885830628752,
+                "99.9999" : 725.0885830628752,
+                "100.0" : 725.0885830628752
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    705.7963362655987,
+                    705.6213509115621,
+                    706.294359107032,
+                    705.9936533803684,
+                    708.0128851811758
+                ],
+                [
+                    712.8621508851381,
+                    723.9161361854041,
+                    725.0885830628752,
+                    723.9902513457547,
+                    723.4628098924132
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_QuarkusServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 790.2651289315371,
+            "scoreError" : 3.2820120264875703,
+            "scoreConfidence" : [
+                786.9831169050495,
+                793.5471409580247
+            ],
+            "scorePercentiles" : {
+                "0.0" : 787.4708994251782,
+                "50.0" : 791.3573303627891,
+                "90.0" : 792.4893898383173,
+                "95.0" : 792.5081760531722,
+                "99.0" : 792.5081760531722,
+                "99.9" : 792.5081760531722,
+                "99.99" : 792.5081760531722,
+                "99.999" : 792.5081760531722,
+                "99.9999" : 792.5081760531722,
+                "100.0" : 792.5081760531722
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    791.9611277098982,
+                    788.0941525740113,
+                    787.6741539650163,
+                    787.9065059943218,
+                    787.4708994251782
+                ],
+                [
+                    792.3203139046228,
+                    792.0012989635728,
+                    792.5081760531722,
+                    791.5629480714555,
+                    791.1517126541228
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_SpringBootMVCServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 689.3760364152315,
+            "scoreError" : 9.136663632166673,
+            "scoreConfidence" : [
+                680.2393727830648,
+                698.5127000473982
+            ],
+            "scorePercentiles" : {
+                "0.0" : 677.8449309077077,
+                "50.0" : 690.064057244796,
+                "90.0" : 698.0931830153345,
+                "95.0" : 698.2239548918362,
+                "99.0" : 698.2239548918362,
+                "99.9" : 698.2239548918362,
+                "99.99" : 698.2239548918362,
+                "99.999" : 698.2239548918362,
+                "99.9999" : 698.2239548918362,
+                "100.0" : 698.2239548918362
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    677.8449309077077,
+                    690.536636083766,
+                    682.5359986088904,
+                    688.3086720036586,
+                    687.3778471459734
+                ],
+                [
+                    698.2239548918362,
+                    696.916236126819,
+                    691.7296767016792,
+                    689.591478405826,
+                    690.6949332761583
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_SpringBootWebFluxServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 611.6828905656663,
+            "scoreError" : 18.63741770395353,
+            "scoreConfidence" : [
+                593.0454728617128,
+                630.3203082696198
+            ],
+            "scorePercentiles" : {
+                "0.0" : 601.1719277881278,
+                "50.0" : 616.0918684905823,
+                "90.0" : 619.511041107563,
+                "95.0" : 619.511041107563,
+                "99.0" : 619.511041107563,
+                "99.9" : 619.511041107563,
+                "99.99" : 619.511041107563,
+                "99.999" : 619.511041107563,
+                "99.9999" : 619.511041107563,
+                "100.0" : 619.511041107563
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    602.1731385782714,
+                    616.0918684905823,
+                    619.511041107563,
+                    618.0569800932961
+                ],
+                [
+                    601.1719277881278,
+                    605.7691251703876,
+                    619.0061527314352
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_UndertowServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 435.1053254220427,
+            "scoreError" : 29.375182463070136,
+            "scoreConfidence" : [
+                405.7301429589726,
+                464.48050788511284
+            ],
+            "scorePercentiles" : {
+                "0.0" : 416.7995706243535,
+                "50.0" : 430.33593962959833,
+                "90.0" : 459.67777912865296,
+                "95.0" : 459.74183881418645,
+                "99.0" : 459.74183881418645,
+                "99.9" : 459.74183881418645,
+                "99.99" : 459.74183881418645,
+                "99.999" : 459.74183881418645,
+                "99.9999" : 459.74183881418645,
+                "100.0" : 459.74183881418645
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    442.73501994728923,
+                    446.2168871497672,
+                    459.74183881418645,
+                    459.1012419588514,
+                    456.4837655575305
+                ],
+                [
+                    417.9368593119074,
+                    417.63816829092445,
+                    417.3318925094373,
+                    416.7995706243535,
+                    417.0680100561797
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.35",
+        "benchmark" : "one.edee.oss.http_server_evaulation_test.jmh.ServersLatencyBenchmark.graphQLApiEchoQuery_VertXServer",
+        "mode" : "avgt",
+        "threads" : 8,
+        "forks" : 2,
+        "jvm" : "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.2",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.2+8-Ubuntu-122.10",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 min",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 658.9517315521596,
+            "scoreError" : 9.631837685268424,
+            "scoreConfidence" : [
+                649.3198938668911,
+                668.583569237428
+            ],
+            "scorePercentiles" : {
+                "0.0" : 653.2263941418225,
+                "50.0" : 657.9292683934946,
+                "90.0" : 674.4972456302256,
+                "95.0" : 676.1311191533192,
+                "99.0" : 676.1311191533192,
+                "99.9" : 676.1311191533192,
+                "99.99" : 676.1311191533192,
+                "99.999" : 676.1311191533192,
+                "99.9999" : 676.1311191533192,
+                "100.0" : 676.1311191533192
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    658.0781290115942,
+                    658.0626483975824,
+                    656.2165336394122,
+                    657.7958883894066,
+                    653.2263941418225
+                ],
+                [
+                    657.0351123126435,
+                    658.9842898896845,
+                    659.7923839223834,
+                    676.1311191533192,
+                    654.1948166637478
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
