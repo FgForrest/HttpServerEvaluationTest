@@ -57,11 +57,11 @@ query Echo {
 and response:
 ```json
 {
-    "data": {
-	    "echo": {
-		    "message": "hello"
-        }
+  "data": {
+    "echo": {
+      "message": "hello"
     }
+  }
 }
 ```
 
