@@ -2,6 +2,7 @@ package one.edee.oss.http_server_evaulation_test.server.undertow;
 
 import io.undertow.Undertow;
 import io.undertow.server.handlers.BlockingHandler;
+import io.undertow.server.handlers.PathHandler;
 
 import static io.undertow.Handlers.path;
 
