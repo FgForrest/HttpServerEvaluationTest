@@ -1,2 +1,2 @@
 #/bin/bash
-java -jar server/target/servers.jar
+taskset -c 0-5 java -server -jar server/target/servers.jar
