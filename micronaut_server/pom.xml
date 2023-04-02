@@ -10,14 +10,14 @@
   <parent>
     <groupId>io.micronaut</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>3.4.1</version>
+    <version>3.8.8</version>
   </parent>
 
   <properties>
     <packaging>jar</packaging>
     <jdk.version>17</jdk.version>
     <release.version>17</release.version>
-    <micronaut.version>3.4.1</micronaut.version>
+    <micronaut.version>3.8.8</micronaut.version>
     <exec.mainClass>one.edee.oss.http_server_evaulation_test.server.micronaut.MicronautServerRunner</exec.mainClass>
     <micronaut.runtime>netty</micronaut.runtime>
   </properties>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>io.micronaut.graphql</groupId>
       <artifactId>micronaut-graphql</artifactId>
-      <version>3.0.0</version>
+      <version>3.2.0</version>
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>

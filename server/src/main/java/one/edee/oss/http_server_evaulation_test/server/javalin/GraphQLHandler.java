@@ -2,7 +2,7 @@ package one.edee.oss.http_server_evaulation_test.server.javalin;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import io.javalin.http.HttpCode;
+import io.javalin.http.HttpStatus;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLManager;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLRequest;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLResponse;
@@ -21,7 +21,7 @@ public class GraphQLHandler implements Handler {
         final GraphQLRequest graphQLRequest = ctx.bodyAsClass(GraphQLRequest.class);
         final GraphQLResponse<Object> graphQLResponse = graphQLManager.execute(graphQLRequest);
 
-        ctx.status(HttpCode.OK);
+        ctx.status(HttpStatus.OK);
         ctx.json(graphQLResponse);
     }
 }
