@@ -7,3 +7,6 @@ netty:
   default:
     allocator:
       max-order: 3
+graphql:
+  enabled: true
+  path: /graphql
