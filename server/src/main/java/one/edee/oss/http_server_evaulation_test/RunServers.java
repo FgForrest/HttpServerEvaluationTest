@@ -8,6 +8,7 @@ import one.edee.oss.http_server_evaulation_test.server.undertow.UndertowServerRu
 import one.edee.oss.http_server_evaulation_test.server.vertx.VertXServerRunner;
 
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RunServers {
@@ -85,9 +86,9 @@ public class RunServers {
             running.set(false);
         }));
 
-        while (running.get()) {
-            // running
-        }
+        Scanner scanner = new Scanner(System.in);
+        scanner.next();
+        System.exit(0);
         System.out.println("Servers are shutdown.");
     }
 }
