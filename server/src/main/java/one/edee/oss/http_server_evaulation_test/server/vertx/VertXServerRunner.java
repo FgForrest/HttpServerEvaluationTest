@@ -12,18 +12,17 @@ public class VertXServerRunner {
 
     public static final int PORT = 8085;
 
-    private Vertx vertx;
-    private GraphQL graphQL;
+    private final Vertx vertx = Vertx.vertx();
+    private final GraphQL graphQL;
 
     public VertXServerRunner() {
         this.graphQL = new GraphQLProvider().getGraphQL();
     }
 
     public void run() {
-        vertx = Vertx.vertx();
         vertx.deployVerticle(new AbstractVerticle() {
             @Override
-            public void start() throws Exception {
+            public void start() {
                 // Create a Router
                 Router router = Router.router(vertx);
 
@@ -35,7 +34,7 @@ public class VertXServerRunner {
                         // reads entire request body for later processing
                         .handler(BodyHandler.create())
                         // serialization and executing requests against graphql is handled by built-in handler
-                        .handler(GraphQLHandler.create(graphQL));
+                        .blockingHandler(GraphQLHandler.create(graphQL));
 
                 // Create the HTTP server
                 vertx.createHttpServer()
