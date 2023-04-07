@@ -1,5 +1,7 @@
 package one.edee.oss.http_server_evaulation_test.server.quarkus;
 
+import io.smallrye.common.annotation.NonBlocking;
+import io.smallrye.mutiny.Uni;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLManager;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLRequest;
 import one.edee.oss.http_server_evaulation_test.graphql.GraphQLResponse;
@@ -16,8 +18,8 @@ public class GraphQLResource {
         this.graphQLManager = new GraphQLManager();
     }
 
-    @POST
-    public GraphQLResponse graphQL(GraphQLRequest request) {
-        return graphQLManager.execute(request);
+    @POST @NonBlocking
+    public Uni<GraphQLResponse<Object>> graphQL(GraphQLRequest request) {
+        return Uni.createFrom().completionStage(graphQLManager.executeAsync(request));
     }
 }

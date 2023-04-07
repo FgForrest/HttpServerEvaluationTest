@@ -29,7 +29,6 @@ import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 
 public class GraphQLHandler implements PathHandler {
-
     private static final GraphQLManager graphQLManager = new GraphQLManager();
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -49,26 +48,23 @@ public class GraphQLHandler implements PathHandler {
         } else if (request instanceof FullHttpRequest fullHttpRequest) {
             final byte[] body = new byte[fullHttpRequest.content().readableBytes()];
             fullHttpRequest.content().readBytes(body);
-            ctx.executor().execute(() -> {
-                HttpResponse response;
-                try {
-                    // translate request
-                    final GraphQLRequest graphQLRequest = objectMapper.readValue(body, GraphQLRequest.class);
+            HttpResponse response;
+            try {
+                // translate request
+                final GraphQLRequest graphQLRequest = objectMapper.readValue(body, GraphQLRequest.class);
 
-                    // execute request
-                    final GraphQLResponse<Object> graphQLResponse = graphQLManager.execute(graphQLRequest);
+                // execute request
+                final GraphQLResponse<Object> graphQLResponse = graphQLManager.execute(graphQLRequest);
 
-                    // send response
-                    final byte[] json = objectMapper.writeValueAsBytes(graphQLResponse);
-                    response = createResponse(ctx, fullHttpRequest, OK, json);
-                } catch (JsonProcessingException e) {
-                    response = createResponse(ctx, fullHttpRequest, INTERNAL_SERVER_ERROR, "".getBytes(StandardCharsets.UTF_8));
-                } catch (IOException e) {
-                    response = createResponse(ctx, fullHttpRequest, BAD_REQUEST, "".getBytes(StandardCharsets.UTF_8));
-                }
-                ctx.writeAndFlush(response);
-            });
-
+                // send response
+                final byte[] json = objectMapper.writeValueAsBytes(graphQLResponse);
+                response = createResponse(ctx, fullHttpRequest, OK, json);
+            } catch (JsonProcessingException e) {
+                response = createResponse(ctx, fullHttpRequest, INTERNAL_SERVER_ERROR, "".getBytes(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                response = createResponse(ctx, fullHttpRequest, BAD_REQUEST, "".getBytes(StandardCharsets.UTF_8));
+            }
+            ctx.writeAndFlush(response);
         }
     }
 

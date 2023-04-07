@@ -17,8 +17,8 @@ public class NettyServerRunner {
 
     public void run() throws InterruptedException {
         // Configure the server.
-        bossGroup = new NioEventLoopGroup();
-        workerGroup = new NioEventLoopGroup();
+        bossGroup = new NioEventLoopGroup(Runtime.getRuntime().availableProcessors());
+        workerGroup = new NioEventLoopGroup(Runtime.getRuntime().availableProcessors());
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.option(ChannelOption.SO_BACKLOG, 1024);
