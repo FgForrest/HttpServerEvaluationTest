@@ -14,12 +14,17 @@
     </properties>
 
     <modules>
-        <module>server</module>
         <module>performance_tests</module>
         <module>spring_boot_mvc_server</module>
         <module>spring_boot_web_flux_server</module>
         <module>graphql</module>
         <module>quarkus_server</module>
+        <module>javalin_server</module>
+        <module>microhttp_server</module>
+        <module>nanohttpd_server</module>
+        <module>netty_server</module>
+        <module>vertx_server</module>
+        <module>undertow_server</module>
     </modules>
 
     <dependencyManagement>

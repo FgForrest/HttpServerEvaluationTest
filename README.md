@@ -31,11 +31,16 @@ mvn clean package
 
 After that run servers in parallel:
 ```
-./run-servers.sh
+./run-javalin-server.sh
+./run-microhttp-server.sh
+./run-micronaut-server.sh
+./run-nanohttpd-server.sh
+./run-netty-server.sh
+./run-quarkus-server.sh
 ./run-spring-boot-mvc-server.sh
 ./run-spring-boot-web-flux-server.sh
-./run-quarkus-server.sh
-./run-micronaut-server.sh
+./run-undertow-server.sh
+./run-vertx-server.sh
 ```
 
 Finally, run JMH benchmarks, e.g.:
@@ -69,32 +74,27 @@ It has its own Maven module `graphql` where is simple implementation of GraphQL 
 
 ## HTTP Servers
 
-Servers are implemented in Maven module `server`.
+Servers are implemented in separate Maven modules.
 Each server has `server runner` class which is responsible for starting and stopping server and mapping handlers
 to endpoints.
 There are implementations of `Hello world` endpoint and GraphQL API endpoint to simulate simple routing.
 Each server has assigned specific port on which it will start, starting with `8081`.
 This is to enable parallel automatic testing of all servers.
 
-For running there is class `one.edee.oss.http_server_evaulation_test.RunServers` which starts and stops all servers
-which simple command, each in its own daemon thread if needed.
-Therefore, to run servers just run:
+Each server is started by specific command:
+
 ```
-./run-servers.sh
+./run-javalin-server.sh
+./run-microhttp-server.sh
+./run-micronaut-server.sh
+./run-nanohttpd-server.sh
+./run-netty-server.sh
+./run-quarkus-server.sh
+./run-spring-boot-mvc-server.sh
+./run-spring-boot-web-flux-server.sh
+./run-undertow-server.sh
+./run-vertx-server.sh
 ```
-
-There are, however, some exception where some servers cannot be easily run embedded in custom workflow.
-Those are:
-
-- Spring Boot MVC
-- Spring Boot WebFlux
-- Quarkus
-- Micronaut
-
-These servers have their own build and run workflows, so they must be build and run separately using respective scripts.
-Spring servers inherit code from main `server` module and only modify build flow, but Quarkus and Micronaut
-have whole implementations in their module as they are not simple to run cross module.
-On top of that, Micronaut has its own Micronaut parent, and therefore it must be build separately. 
 
 ## Benchmarks
 

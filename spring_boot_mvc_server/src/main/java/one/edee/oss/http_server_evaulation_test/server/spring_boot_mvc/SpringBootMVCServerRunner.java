@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Collections;
 
+import static java.util.Optional.ofNullable;
+
 /**
  * NOTE: has to be run separately because it cannot be easily embeddable like other servers
  */
@@ -22,7 +24,8 @@ public class SpringBootMVCServerRunner {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(SpringBootMVCServerRunner.class);
-        app.setDefaultProperties(Collections.singletonMap("server.port", String.valueOf(PORT)));
+        final int port = ofNullable(System.getProperty("port")).map(Integer::parseInt).orElse(PORT);;
+        app.setDefaultProperties(Collections.singletonMap("server.port", String.valueOf(port)));
         app.run(args);
     }
 }
