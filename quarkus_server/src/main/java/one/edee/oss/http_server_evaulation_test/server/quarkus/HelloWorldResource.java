@@ -1,12 +1,15 @@
 package one.edee.oss.http_server_evaulation_test.server.quarkus;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
-@Path("/")
+@Path("/hello")
 public class HelloWorldResource {
 
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public String helloWorld() {
         return "Hello World";
     }
