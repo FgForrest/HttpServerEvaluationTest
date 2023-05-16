@@ -19,6 +19,18 @@
         <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus.platform</groupId>
+                <artifactId>quarkus-bom</artifactId>
+                <version>3.0.3.Final</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- servers -->
         <dependency>
@@ -41,6 +53,11 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-mutiny</artifactId>
             <version>3.0.3.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
         </dependency>
     </dependencies>
 
