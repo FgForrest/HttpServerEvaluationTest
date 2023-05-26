@@ -1,2 +1,2 @@
 #/bin/bash
-taskset -c 0-5 ./quarkus_server/target/http_server_evaulation_test_quarkus_server-1.0-SNAPSHOT-runner
+taskset -c 0-5 java -server -jar quarkus_server/target/quarkus-app/quarkus-run.jar

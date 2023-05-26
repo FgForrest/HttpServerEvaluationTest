@@ -16,10 +16,10 @@ public class QuarkusServerRunner {
     public static class QuarkusServer implements QuarkusApplication {
 
         @Override
-        public int run(String... args) throws Exception {
-            System.out.println("Quarkus Native server started.");
+        public int run(String... args) {
+            System.out.println("Quarkus server started.");
             Quarkus.waitForExit();
-            System.out.println("Quarkus Native server stopped.");
+            System.out.println("Quarkus server stopped.");
             return 0;
         }
     }
