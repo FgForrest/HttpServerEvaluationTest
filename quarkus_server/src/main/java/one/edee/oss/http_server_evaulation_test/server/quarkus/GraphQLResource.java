@@ -1,5 +1,6 @@
 package one.edee.oss.http_server_evaulation_test.server.quarkus;
 
+import io.smallrye.common.annotation.NonBlocking;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -15,6 +16,7 @@ public class GraphQLResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @NonBlocking
     @Query
     public EchoResponse echo(String message) {
         return new EchoResponse(message);
