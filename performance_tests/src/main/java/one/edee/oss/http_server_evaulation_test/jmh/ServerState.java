@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 
-@State(Scope.Benchmark)
+@State(Scope.Thread)
 public abstract class ServerState {
 
     public HttpClient client;
@@ -16,6 +16,7 @@ public abstract class ServerState {
     @Setup(Level.Trial)
     public void setUp() throws URISyntaxException {
         client = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
                 .build();
 
         /*

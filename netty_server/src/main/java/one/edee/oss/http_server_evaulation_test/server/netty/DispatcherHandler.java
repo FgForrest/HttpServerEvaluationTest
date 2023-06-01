@@ -21,7 +21,7 @@ public class DispatcherHandler extends SimpleChannelInboundHandler<HttpObject> {
 	private static final Map<String, PathHandler> handlers = new HashMap<>() {
 		@Serial private static final long serialVersionUID = -1086557078624337728L;
 		{
-			put("/", new HelloWorldHandler());
+			put("/hello", new HelloWorldHandler());
 			put("/graphql", new GraphQLHandler());
 		}
 	};
