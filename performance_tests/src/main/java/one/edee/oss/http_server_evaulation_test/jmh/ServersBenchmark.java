@@ -83,6 +83,16 @@ public abstract class ServersBenchmark {
     }
 
     private HttpResponse<String> callGraphQLApi(ServerState state) throws IOException, InterruptedException {
-        return state.client.send(state.request, BodyHandlers.ofString());
+        IOException ex = null;
+        for (int i = 0; i < 5; i++) {
+            try {
+                return state.client.send(state.request, BodyHandlers.ofString());
+            } catch (IOException e) {
+                // remember exception and just retry
+                ex = e;
+            }
+        }
+        // retry failed 5 times
+        throw ex;
     }
 }
