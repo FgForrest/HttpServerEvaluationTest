@@ -1,17 +1,17 @@
 package one.edee.oss.http_server_evaulation_test.server;
 
+import fi.iki.elonen.NanoHTTPD;
 import one.edee.oss.http_server_evaulation_test.server.nanohttpd.NanoHTTPDServerRunner;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RunNanohttpd {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // start nanohttpd
         final NanoHTTPDServerRunner nanoHTTPDServerRunner = new NanoHTTPDServerRunner();
-        final Thread nanoHTTPDServerThread = new Thread(nanoHTTPDServerRunner::run);
-        nanoHTTPDServerThread.setDaemon(true);
-        nanoHTTPDServerThread.start();
+        nanoHTTPDServerRunner.start(NanoHTTPD.SOCKET_READ_TIMEOUT, true);
 
         // shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
