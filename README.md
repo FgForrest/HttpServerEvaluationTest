@@ -13,6 +13,7 @@ Tested servers are:
 - [Spring Boot WebFlux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#spring-webflux)
 - [Vert.x](https://github.com/eclipse-vertx/vert.x)
 - [Quarkus Native](https://quarkus.io/)
+- [Quarkus JVM](https://quarkus.io/)
 - [Undertow](https://github.com/undertow-io/undertow)
 - [Micronaut](https://micronaut.io/)
 - [Javalin](https://github.com/tipsy/javalin)
@@ -29,7 +30,13 @@ cd micronaut_server
 mvn clean package
 ```
 
-After that run servers in parallel:
+If you want native version of Quarkus build with `native` parameter`:
+```
+mvn clean install -Dnative
+```
+
+After that run servers separately by following shell scripts:
+
 ```
 ./run-javalin-server.sh
 ./run-microhttp-server.sh
@@ -37,15 +44,27 @@ After that run servers in parallel:
 ./run-nanohttpd-server.sh
 ./run-netty-server.sh
 ./run-quarkus-server.sh
+./run-quarkus-native-server.sh
 ./run-spring-boot-mvc-server.sh
 ./run-spring-boot-web-flux-server.sh
 ./run-undertow-server.sh
 ./run-vertx-server.sh
 ```
 
-Finally, run JMH benchmarks, e.g.:
+Finally, run JMH benchmarks for each of the server, e.g.:
+
 ```
-java -jar performance_tests/target/benchmarks.jar -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Javalin.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*MicroHTTP.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Micronaut.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*NanoHTTPD.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Netty.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Quarkus.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Quarkus.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*MVC.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Flux.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Undertow.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*VertX.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 ```
 
 ## GraphQL API
@@ -79,7 +98,6 @@ Each server has `server runner` class which is responsible for starting and stop
 to endpoints.
 There are implementations of `Hello world` endpoint and GraphQL API endpoint to simulate simple routing.
 Each server has assigned specific port on which it will start, starting with `8081`.
-This is to enable parallel automatic testing of all servers.
 
 Each server is started by specific command:
 
@@ -90,6 +108,7 @@ Each server is started by specific command:
 ./run-nanohttpd-server.sh
 ./run-netty-server.sh
 ./run-quarkus-server.sh
+./run-quarkus-native-server.sh
 ./run-spring-boot-mvc-server.sh
 ./run-spring-boot-web-flux-server.sh
 ./run-undertow-server.sh
@@ -101,8 +120,20 @@ Each server is started by specific command:
 For benchmarking there is Maven module `performance_tests`.
 Each server has its own test where HTTP Client calls the API with request mentioned above.
 The tests are built using JMH framework and measure throughput and latency in maximum possible threads.
-After servers are running, benchmarks can be run by:
+After the server is running, benchmarks can be run by:
+
 ```
-java -jar performance_tests/target/benchmarks.jar -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Javalin.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*MicroHTTP.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Micronaut.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*NanoHTTPD.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Netty.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Quarkus.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Quarkus.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*MVC.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Flux.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*Undertow.* -wi 1 -i 5 -f 1 -rf json -rff results.json
+java -jar performance_tests/target/benchmarks.jar .*VertX.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 ```
+
 which runs single warmup iteration and 5 normal iterations and saves the results to JSON file.
