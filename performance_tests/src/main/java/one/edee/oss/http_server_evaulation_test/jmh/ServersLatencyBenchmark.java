@@ -61,4 +61,9 @@ public class ServersLatencyBenchmark extends ServersBenchmark {
     public void graphQLApiEchoQuery_MicronautServer(MicronautServerState state, Blackhole blackhole) throws IOException, InterruptedException {
         super.graphQLApiEchoQuery_MicronautServer(state, blackhole);
     }
+
+    @Override
+    public void graphQLApiEchoQuery_ArmeriaServer(ArmeriaServerState state, Blackhole blackhole) throws IOException, InterruptedException {
+        super.graphQLApiEchoQuery_ArmeriaServer(state, blackhole);
+    }
 }

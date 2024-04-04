@@ -25,6 +25,7 @@
         <module>netty_server</module>
         <module>vertx_server</module>
         <module>undertow_server</module>
+        <module>armeria_server</module>
     </modules>
 
     <build>
