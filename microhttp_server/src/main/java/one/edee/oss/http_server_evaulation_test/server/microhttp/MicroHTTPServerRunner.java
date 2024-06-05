@@ -17,9 +17,10 @@ public class MicroHTTPServerRunner {
 
     public void run() throws IOException {
         final int port = ofNullable(System.getProperty("port")).map(Integer::parseInt).orElse(PORT);;
-        Options options = new Options()
+        Options options = Options.builder()
                 .withHost("localhost")
-                .withPort(ofNullable(System.getProperty("port")).map(Integer::parseInt).orElse(port));
+                .withPort(ofNullable(System.getProperty("port")).map(Integer::parseInt).orElse(port))
+                .build();
 
         eventLoop = new EventLoop(options, new NoOpLogger(), new DispatcherHandler());
         System.out.println("Starting Microhttp server on port " + port + ".");
