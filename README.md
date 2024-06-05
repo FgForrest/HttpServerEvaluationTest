@@ -38,6 +38,7 @@ mvn clean install -Dnative
 After that run servers separately by following shell scripts:
 
 ```
+./run-armeria-server.sh
 ./run-javalin-server.sh
 ./run-microhttp-server.sh
 ./run-micronaut-server.sh
@@ -54,12 +55,12 @@ After that run servers separately by following shell scripts:
 Finally, run JMH benchmarks for each of the server, e.g.:
 
 ```
+java -jar performance_tests/target/benchmarks.jar .*Armeria.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*Javalin.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*MicroHTTP.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*Micronaut.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*NanoHTTPD.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*Netty.* -wi 1 -i 5 -f 1 -rf json -rff results.json
-java -jar performance_tests/target/benchmarks.jar .*Quarkus.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*Quarkus.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*MVC.* -wi 1 -i 5 -f 1 -rf json -rff results.json
 java -jar performance_tests/target/benchmarks.jar .*Flux.* -wi 1 -i 5 -f 1 -rf json -rff results.json
