@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.linecorp.armeria.common.*;
 import com.linecorp.armeria.server.ServiceRequestContext;
+import com.linecorp.armeria.server.annotation.Blocking;
 import com.linecorp.armeria.server.annotation.Post;
 import com.linecorp.armeria.server.annotation.RequestConverter;
 import com.linecorp.armeria.server.annotation.StringRequestConverterFunction;
@@ -23,11 +24,17 @@ public class GraphQLService {
         this.graphQLManager = new GraphQLManager();
         this.objectMapper = new ObjectMapper();
     }
+
+    @Blocking
     @Post("/graphql")
     @RequestConverter(StringRequestConverterFunction.class)
-    public HttpResponse serve(ServiceRequestContext ctx, AggregatedHttpRequest req) throws ExecutionException, InterruptedException {
+    public ResponseEntity<String> serve(ServiceRequestContext ctx, AggregatedHttpRequest req) throws ExecutionException, InterruptedException {
         if (!req.method().equals(HttpMethod.POST)) {
-            return createResponse(400, "");
+            final ResponseHeaders headers =
+                    ResponseHeaders.builder(400)
+                            .contentType(MediaType.JSON)
+                            .build();
+            return ResponseEntity.of(headers, "");
         }
 
         final AtomicReference<String> bodyRef = new AtomicReference<>();
@@ -42,7 +49,11 @@ public class GraphQLService {
         try {
             graphQLRequest = objectMapper.readValue(body, GraphQLRequest.class);
         } catch (IOException e) {
-            return createResponse(400, "Invalid body");
+            final ResponseHeaders headers =
+                    ResponseHeaders.builder(400)
+                            .contentType(MediaType.JSON)
+                            .build();
+            return ResponseEntity.of(headers, "Invalid body");
         }
 
         final GraphQLResponse<Object> graphQLResponse = graphQLManager.execute(graphQLRequest);
@@ -52,10 +63,18 @@ public class GraphQLService {
         try {
             json = objectMapper.writeValueAsString(graphQLResponse);
         } catch (JsonProcessingException e) {
-            return createResponse(500, "Json error");
+            final ResponseHeaders headers =
+                    ResponseHeaders.builder(500)
+                            .contentType(MediaType.JSON)
+                            .build();
+            return ResponseEntity.of(headers, "Json error");
         }
 
-        return createResponse(200, json);
+        final ResponseHeaders headers =
+                ResponseHeaders.builder(200)
+                        .contentType(MediaType.JSON)
+                        .build();
+        return ResponseEntity.of(headers, json);
     }
 
     private HttpResponse createResponse(int statusCode, String data) {
